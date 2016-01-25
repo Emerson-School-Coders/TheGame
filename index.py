@@ -148,8 +148,9 @@ print('Loading Saves')
 load()
 print('Done.')
 print('Loading worlds')
-world=open(os.path.expanduser("~/.ealgase/TheGame/world/worldlist.tgc"),'w')
+world=open(os.path.expanduser("~/.ealgase/TheGame/world/worldlist.tgc"),'r')
 worldcontent=world.read()
+worlds=[]
 for item in worldcontent.split('nextworld'):
     worlds.append(item)
 world.close()
