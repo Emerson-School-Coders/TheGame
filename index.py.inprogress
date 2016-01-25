@@ -1,0 +1,116 @@
+#Created by Ealgase
+#The AdventureGame
+#The real version
+#Created in python3
+#index.py
+###
+#Import the modules
+import random
+import time
+import os
+from menu import menu,cls
+#Saving
+def save():
+    livesfile=open(os.path.expanduser(~/.ealgase/TheGame/saves/lives.tgs),'w')
+    goldfile=open(os.path.expanduser(~/.ealgase/TheGame/saves/gold.tgs),'w')
+    damagemfile=open(os.path.expanduser(~/.ealgase/TheGame/saves/damagem.tgs),'w')
+    healthmfile=open(os.path.expanduser(~/.ealgase/TheGame/saves/healthm.tgs),'w')
+    ebhealthfile=open(os.path.expanduser(~/.ealgase/TheGame/saves/ebhealth.tgs),'w')
+    specialfile=open(os.path.expanduser(~/.ealgase/TheGame/saves/special.tgs),'w')
+    livesfile.write(str(lives))
+    goldfile.write(str(gold))
+    damagemfile.write(str(damagem))
+    healthmfile.write(str(healthm))
+    ebhealthfile.write(str(ebhealth))
+    for item in special:
+        specialfile.write(item)
+        specialfile.write(',')
+    specialfile.write('\b')
+    livesfile.close()
+    goldfile.close()
+    damagemfile.close()
+    healthmfile.close()
+    ebhealthfile.close()
+    specialfile.close()
+#Loading
+def load():
+    #Load the saves
+    if os.path.isfile(os.path.expanduser(~/.ealgase/TheGame/saves.tgs)):
+        livesfile=open(os.path.expanduser(~/.ealgase/TheGame/saves/lives.tgs))
+        goldfile=open(os.path.expanduser(~/.ealgase/TheGame/saves/gold.tgs))
+        damagemfile=open(os.path.expanduser(~/.ealgase/TheGame/saves/damagem.tgs))
+        healthmfile=open(os.path.expanduser(~/.ealgase/TheGame/saves/healthm.tgs))
+        ebhealthfile=open(os.path.expanduser(~/.ealgase/TheGame/saves/ebhealth.tgs))
+        specialfile=open(os.path.expanduser(~/.ealgase/TheGame/saves/special.tgs))
+        lives=livesfile.read()
+        gold=goldfile.read()
+        damagem=damagemfile.read()
+        healthm=healthmfile.read()
+        ebhealth=ebhealthfile.read()
+        special=[]
+        for item in specialfile.read().split(','):
+            special.append(item)
+        livesfile.close()
+        goldfile.close()
+        damagemfile.close()
+        healthmfile.close()
+        ebhealthfile.close()
+        specialfile.close()
+    else:
+        livesfile1=open(os.path.expanduser(~/.ealgase/TheGame/saves/lives.tgs),'x')
+        goldfile1=open(os.path.expanduser(~/.ealgase/TheGame/saves/gold.tgs),'x')
+        damagemfile1=open(os.path.expanduser(~/.ealgase/TheGame/saves/damagem.tgs),'x')
+        healthmfile1=open(os.path.expanduser(~/.ealgase/TheGame/saves/healthm.tgs),'x')
+        ebhealthfile1=open(os.path.expanduser(~/.ealgase/TheGame/saves/ebhealth.tgs),'x')
+        specialfile1=open(os.path.expanduser(~/.ealgase/TheGame/saves/special.tgs),'x')
+        lives=1
+        gold=1
+        damagem=1
+        healthm=1
+        ebhealth=0
+        special=[]
+        save()
+        livesfile1.close()
+        goldfile1.close()
+        damagemfile1.close()
+        healthmfile1.close()
+        ebhealthfile1.close()
+        specialfile1.close()
+#Kick off the game!
+option=menu([['Play Tutorial','T'],['Play Game','P'],['Exit','E']],1,'What would you like to do?')
+if option=='T':
+    #Do the tutorial
+    import tutorial
+    print("You've finished the tutorial!")
+    print("Time to start the real game in 10 seconds")
+    time.sleep(1)
+    print("Time to start the real game in 9 seconds")
+    time.sleep(1)
+    print("Time to start the real game in 8 seconds")
+    time.sleep(1)
+    print("Time to start the real game in 7 seconds")
+    time.sleep(1)
+    print("Time to start the real game in 6 seconds")
+    time.sleep(1)
+    print("Time to start the real game in 5 seconds")
+    time.sleep(1)
+    print("Time to start the real game in 4 seconds")
+    time.sleep(1)
+    print("Time to start the real game in 3 seconds")
+    time.sleep(1)
+    print("Time to start the real game in 2 seconds")
+    time.sleep(1)
+    print("Time to start the real game in 1 second")
+    time.sleep(1)
+    cls()
+elif option=='P':
+    #Play da game
+    pass
+else:
+    #Pretty simple
+    exit()
+print('Loading Saves')
+load()
+print('Done.')
+print('Loading worlds')
+world=open(os.path.expand(~/.ealagse/TheGame/world/worldlist.tgc),'w')
