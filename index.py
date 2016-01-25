@@ -148,7 +148,7 @@ print('Loading Saves')
 load()
 print('Done.')
 print('Loading worlds')
-world=open(os.path.expanduser("~/.ealagse/TheGame/world/worldlist.tgc"),'w')
+world=open(os.path.expanduser("~/.ealgase/TheGame/world/worldlist.tgc"),'w')
 worldcontent=world.read()
 for item in worldcontent.split('nextworld'):
     worlds.append(item)
@@ -162,7 +162,7 @@ for item in worlds:
 #####Example worlds file
 ####Name: snowy.wrd
 ####snowy,2,example1-example2
-#####Example ~/.ealagse/TheGame/world/worldlist.tgc
+#####Example ~/.ealgase/TheGame/world/worldlist.tgc
 ####~/.ealgase/TheGame/world/snowy.wrdnextworld~/.ealgase/TheGame/world/dry.wrdnextworld~/.ealgase/TheGame/world/main.wrd
 for item in worlditems:
     worldtemplist=[]
